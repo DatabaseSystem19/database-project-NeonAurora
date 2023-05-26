@@ -69,4 +69,11 @@ CREATE TABLE source_station
 
 
 
+ALTER TABLE train 
+ADD (additional_info VARCHAR2(100));
 
+ALTER TABLE train
+RENAME COLUMN additional_info TO extra_info;
+
+ALTER TABLE train
+DROP COLUMN extra_info;

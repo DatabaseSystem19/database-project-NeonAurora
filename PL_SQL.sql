@@ -1,17 +1,12 @@
 -- PL/SQL
 
--- Normal printing
-
 SET SERVEROUTPUT ON
 DECLARE 
-  -- Declare a variable
   my_variable VARCHAR2(100); 
 
 BEGIN 
-  -- Assign a value to the variable
   my_variable := 'Hello, PL/SQL!'; 
 
-  -- Print the variable's value
   DBMS_OUTPUT.PUT_LINE(my_variable); 
 END;
 /
@@ -29,7 +24,6 @@ DECLARE
   v_platform_info VARCHAR2(100);
 
 BEGIN
-  -- Assign values to variables
   v_station_id := 7;
   v_station_name := 'Test Station';
   v_city := 'Test City';
@@ -38,17 +32,13 @@ BEGIN
   v_email := 'test@station.com';
   v_platform_info := 'Platform 99';
 
-  -- Insert a new row
   INSERT INTO station (station_id, station_name, city, operating_hours, contact, email, platform_info)
   VALUES (v_station_id, v_station_name, v_city, v_operating_hours, v_contact, v_email, v_platform_info);
   
-  -- Commit the transaction
   COMMIT;
 
-  -- Now delete the inserted row
   DELETE FROM station WHERE station_id = v_station_id;
   
-  -- Commit the transaction
   COMMIT;
   
 END;
